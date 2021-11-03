@@ -1,8 +1,10 @@
 <template>
-    <div id="app" class="container-fluid mt-3">
-        <div class="jumbotron">
+    <div id="app" class="container-fluid  px-0">
+        <div class="container-fluid px-0">
+            <!--
             <h1>Proyecto Final NT2 Applaudeme</h1>
-            <br>
+            <br>-
+            -->
             <Navbar />
             <router-view></router-view>
 
