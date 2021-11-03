@@ -9,6 +9,14 @@
             <router-view></router-view>
 
         </div>
+        <footer class=" container-fluid row m-0">
+            <div class="col-6 " >
+                &copy; 2021 - Applaudeme - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+            <div class=" col-6 ">
+                By Artaza, Eserequis Junor, Plumari
+            </div>
+        </footer>
     </div>
 </template>
 
@@ -25,10 +33,19 @@ Navbar
 
 <style>
 #app {
-color: black;
+  color: black;
 }
 h1{
 color: black;
+}
+footer {
+    background-color: #4b1977;
+    color: #ca844e;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 60px; 
 }
 
 </style>

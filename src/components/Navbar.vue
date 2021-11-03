@@ -69,7 +69,8 @@
   .nav-link{
     padding-top: 38px;
     font-size: 25px;
-    color: #ca834e;
+    color: #ca844e;
+    font-weight: 700;
   }
  img{
    margin-left: 100px;  
