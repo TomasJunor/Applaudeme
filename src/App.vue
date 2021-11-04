@@ -11,7 +11,7 @@
         </div>
         <footer class=" container-fluid row m-0">
             <div class="col-6 " >
-                &copy; 2021 - Applaudeme - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                &copy; 2021 - Applaudeme - Privacy
             </div>
             <div class=" col-6 ">
                 By Artaza, Eserequis Junor, Plumari
@@ -34,6 +34,8 @@ Navbar
 <style>
 #app {
   color: black;
+  position:absolute;
+  min-height: 100%;
 }
 h1{
 color: black;
