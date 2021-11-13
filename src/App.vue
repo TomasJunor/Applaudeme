@@ -36,6 +36,8 @@ Navbar
   color: black;
   position:absolute;
   min-height: 100%;
+ background-color: #e7e0c9;
+
 }
 h1{
 color: black;
