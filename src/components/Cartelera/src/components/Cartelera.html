@@ -7,9 +7,9 @@
   <div class="container">
       <h1 id="text-Estreno">ESTRENOS</h1>
       <div class="row" id="cont-BannerEstrenos">
-          <div class="col-3 p-0"><img class="bannersEstrenos" src="../../../../img/marilina.jpg" /></div>
-          <div class="col-3 espaciado-bannersEstreno p-0"><img class="bannersEstrenos" src="../../../../img/hamlet.jpg" /></div>
-          <div class="col-3 p-0"><img class="bannersEstrenos" src="../../../../img/BLACKPINK.jpg" /></div>
+         <div class="col-3 p-0"> <router-link to="/show"><a href="" @click="navigateToShow(0) "><img class="bannersEstrenos" src="../../../../img/marilina.jpg" /></a></router-link></div>
+          <div class="col-3 espaciado-bannersEstreno p-0" ><router-link to="/show"><a href="" @click="navigateToShow(1) "><img class="bannersEstrenos" src="../../../../img/hamlet.jpg" /></a></router-link></div>
+          <div class="col-3 p-0" ><router-link to="/show"><a href="" @click="navigateToShow(1) "><img class="bannersEstrenos" src="../../../../img/BLACKPINK.jpg" /></a></router-link></div>
       </div>
   </div>
   
@@ -17,6 +17,8 @@
   <div class="container">
       <a asp-controller="Espectadors" asp-action="Create"><img class="bannerAdquiri" src="../../../../img/banner_inferior.jpg" /></a>
   </div>
+
+  
   </div>
 </section>
 

@@ -5,6 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery'
 import 'popper.js'
 import 'bootstrap'
+import './axios'
+import store from './store'
+import './globalMixins'
+
 
 Vue.config.productionTip = false
 
@@ -13,5 +17,6 @@ import './form'
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
