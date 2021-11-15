@@ -1,6 +1,13 @@
 <template>
     <section class="src-componentes-Show">
        <div class="jumbotron">
+
+            <div class="row justify-content-end"  >
+                <div class="col-2 pr-0"><img src="../img/Aplausos.jpeg" alt="" width="60"></div>
+                <div class="col-1 pr-0 pt-1" style="margin-left: -50px;"><h1>{{mostrarContAplausos}}</h1></div>
+                <div class="col-1 pt-2" style="margin-left: -20px; margin-bottom: 50px;"><button class="btn m-0" @click="incrementar()" style="background-color: #4b1977; color: white; ">+</button></div>
+            </div>
+
          <div class="row">
            <div class="col-6">
              <img src="../img/hamlet.jpg" alt="" height="800">
@@ -23,6 +30,14 @@
                 <div class="fecha">
                     <h1>Fecha de Estreno</h1>
                     <h1>{{mostrarShows.edad}}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-6 genero ">
+                       <router-link to="/checkOut"> <button class="btn btn-success my-3"  type="submit">Compra Tu entrada!</button></router-link>
+                    </div>
+                    <div class="col-6 duracion">
+                      <router-link to="/room" >  <button class="btn btn-success my-3" type="submit">Ingreso al Show</button></router-link>
+                    </div>
                 </div> 
             </div>
          </div>

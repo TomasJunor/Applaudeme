@@ -8,6 +8,10 @@ const miMixinGlobal = {
         //console.error('mounted -> miMixinGlobal')
     },
     methods: {
+        incrementar() {
+            let cant =1
+            this.$store.dispatch('sumar', cant)
+        }
 
        
     },
@@ -16,6 +20,11 @@ const miMixinGlobal = {
         mostrarShows() {
             let show = this.$store.state.posts
             return show
+        },
+        mostrarContAplausos() {
+            let contador = this.$store.state.contador
+            console.log('Mixin -> mostrarContadorVuex', contador)
+            return contador
         }
     }
 }
