@@ -29,6 +29,8 @@
 
 
             <Registro v-show="!exist && ocultarCheckDni" class="registro"/>
+
+
             <h1 v-show="exist && ocultarCheckDni">existe modificate</h1>
 
     </div>

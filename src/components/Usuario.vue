@@ -1,6 +1,7 @@
 <template>
     <section class="src-componentes-Usuarios">
        <div class="jumbotron">
+           
          <h1>Usuarios</h1>
 
     </div>
