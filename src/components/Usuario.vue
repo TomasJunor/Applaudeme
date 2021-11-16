@@ -4,7 +4,7 @@
            
          <h1>Tu Cuenta</h1>
          <br>
-            <table class="table">
+            <table class="table" v-if="!fueEliminado">
                 <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -23,27 +23,28 @@
                 <td><button class="btn btn-danger mr-3" @click="deleteUsuario(datosUser.id)">DELETE</button></td>                
                 </tr>
             </table>           
-        </div> 
         
-        <div class= "row justify-content-center" v-show="deseaModificar">
-                <div class="col-7">
-                    <vue-form :state="formstateU" @submit.prevent="modificarUsuario(datosUser.id)"> 
-                        <validate tag="div">
-                            <h1>Ingrese Un Nuevo Telefono</h1>
-                            <br>
-                            <input type="text" id="newtel" v-model="formDataU.newtel" required name="newtel" autocomplete="off" class="form-control"  :minlength="telminLength" :maxlength="telmaxLength" placeholder="Ingrese aqui su nuevo numero telefonico"/>
+            <h4 v-else class="alert alert-info">Tus Datos Fueron Eliminados</h4>
+            
+            <div class= "row justify-content-center" v-show="deseaModificar">
+                    <div class="col-7">
+                        <vue-form :state="formstateU" @submit.prevent="modificarUsuario(datosUser.id)"> 
+                            <validate tag="div">
+                                <h1>Ingrese Un Nuevo Telefono</h1>
+                                <br>
+                                <input type="text" id="newtel" v-model="formDataU.newtel" required name="newtel" autocomplete="off" class="form-control"  :minlength="telminLength" :maxlength="telmaxLength" placeholder="Ingrese aqui su nuevo numero telefonico"/>
 
-                            <field-messages name="newtel" show="$dirty">
-                            <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
-                            <div slot="minlength" class="alert alert-danger mt-1"> Este campo debe poseer al menos {{ telminLength }} caracteres </div>
-                            <div v-if="formDataU.newtel.length == telmaxLength" class="alert alert-danger mt-1"> Este campo debe poseer como máximo {{ telmaxLength }} caracteres </div>
-                            </field-messages>
-                        </validate>
-                        <button class="btn btn-success my-3" :disabled="formstateU.$invalid" type="submit">Enviar</button>
-                    </vue-form>
-                </div>
-            </div>       
-    
+                                <field-messages name="newtel" show="$dirty">
+                                <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
+                                <div slot="minlength" class="alert alert-danger mt-1"> Este campo debe poseer al menos {{ telminLength }} caracteres </div>
+                                <div v-if="formDataU.newtel.length == telmaxLength" class="alert alert-danger mt-1"> Este campo debe poseer como máximo {{ telmaxLength }} caracteres </div>
+                                </field-messages>
+                            </validate>
+                            <button class="btn btn-success my-3" :disabled="formstateU.$invalid" type="submit">Enviar</button>
+                        </vue-form>
+                    </div>
+                </div>       
+       </div> 
   </section>
 </template>
 
@@ -63,7 +64,8 @@
         formDataU : this.getDataInicial(),
         datos : [],
         deseaModificar : false,
-        seModifico : false
+        seModifico : false,
+        fueEliminado : false
       }
     },
     methods: {
@@ -72,6 +74,7 @@
                 newtel:''
             }
         },
+
          async deleteUsuario(id) {
         console.log('deleteUsuario', id)
 
@@ -79,11 +82,13 @@
           let respuesta = await this.axios.delete(this.urlUsuarios+id)
           let usuarioEliminado = respuesta.data
           console.log('AXIOS DELETE USUARIO', usuarioEliminado)
+          this.fueEliminado = true
         }
         catch(error) {
           console.error('ERROR AXIOS DELETE USUARIO', error)
         }
       },
+
        async modificarUsuario(id) {
          console.log('putUsuario', id)
         try {

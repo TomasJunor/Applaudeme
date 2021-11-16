@@ -28,9 +28,7 @@
             </div>
 
 
-            <Registro v-show="!exist && ocultarCheckDni" class="registro"/>
-
-
+            <Registro v-show="!exist && ocultarCheckDni" class="registro"/> 
             <Usuarios v-show="exist && ocultarCheckDni"  :datosUser="userExistente"/>
 
     </div>
@@ -44,7 +42,7 @@
 
   export default  {
     name: 'src-componentes-CheckLogIn',
-    components: {Registro,Usuarios},
+    components: {Registro, Usuarios},
     props: [],
     mounted () {
       this.pedirDatosAlServidor()
@@ -94,8 +92,8 @@
                 }     
             }
            
-            //this.$emit('exist', this.exist)
             this.ocultarCheckDni=true
+            //this.$emit('exist', this.exist)
             this.formDataC = this.getDataInicial() 
             //this.formStateC._reset()
         },

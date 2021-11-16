@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Cartelera from './components/Cartelera/index.vue'
-//import Registro from './components/Registro/index.vue'
+import Registro from './components/Registro/index.vue'
 import LogIn from './components/CheckLogIn.vue'
 import Show from './components/Show.vue'
 import CheckOut from './components/CheckOut.vue'
@@ -15,6 +15,7 @@ export const router = new VueRouter({
     routes: [
         { path: '/', redirect: '/cartelera' },
         { path: '/cartelera', component: Cartelera },
+        { path: '/registro', component: Registro },
         { path: '/LogIn', component: LogIn },
         { path: '/show', component: Show },
         { path: '/checkOut', component: CheckOut },
