@@ -31,7 +31,7 @@
             <Registro v-show="!exist && ocultarCheckDni" class="registro"/>
 
 
-            <h1 v-show="exist && ocultarCheckDni">existe modificate</h1>
+            <Usuarios v-show="exist && ocultarCheckDni"  :datosUser="userExistente"/>
 
     </div>
   </section>
@@ -39,11 +39,12 @@
 
 <script>
  import Registro from './Registro/index.vue'
+ import Usuarios from './Usuario.vue'
 
 
   export default  {
     name: 'src-componentes-CheckLogIn',
-    components: {Registro},
+    components: {Registro,Usuarios},
     props: [],
     mounted () {
       this.pedirDatosAlServidor()
@@ -56,8 +57,9 @@
         datos : [],
         dniMinLength : 8,
         dniMaxLength : 9,
-        exist : "",
+        exist : false,
         ocultarCheckDni : false,
+        userExistente : []
       }
     },
     methods: {
@@ -88,6 +90,7 @@
                 console.log(user.dni)
                 if (user.dni ==  this.formDataC.dniCheck) {
                     this.exist=true 
+                    this.userExistente=this.datos[i]
                 }     
             }
            
