@@ -1,87 +1,91 @@
 
-<section class="src-components-registro">
+<section class="src-components-Registro">
   <div class="jumbotron">
-    <div class="row justify-content-end"  >
-      <div class="col-2 pr-0"><img src="../../../../img/Aplausos.jpeg" alt="" width="60"></div>
-      <div class="col-1 pr-0 pt-1" style="margin-left: -60px;"><h1>{{mostrarContAplausos}}</h1></div>
-      <div class="col-1 pt-2" style="margin-left: -30px;"><button class="btn m-0" @click="incrementar()" style="background-color: #4b1977; color: white; ">+</button></div>
-    </div>
-    <h1>Registrate </h1>
+    <h1>Registrate</h1>
 
     <vue-form :state="formstate" @submit.prevent="enviar()">
       
-      <validate tag="div">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" v-model.trim="formData.nombre" required name="nombre" autocomplete="off" class="form-control" :minlength="nomApeMinLength":maxlength="nomApeMaxLength"
-        sin-espacios placeholder="Ingrese aqui su Nombre"/>
-  
-        <field-messages name="nombre" show="$dirty">
-          <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
-          <div slot="sin-espacios" class="alert alert-danger mt-1">No se permiten espacios intermedios en este campo.</div>
-          <div slot="minlength" class="alert alert-danger mt-1"> Este campo debe poseer al menos {{ nomApeMinLength }} caracteres </div>
-          <div v-if="formData.nombre.length == nomApeMaxLength" class="alert alert-danger mt-1"> Este campo debe poseer como máximo {{ nomApeMaxLength }} caracteres </div>
-        </field-messages>
-      </validate>
-      <br>
-      <validate tag="div">
-        <label for="apellido">Apellido</label>
-        <input type="text" id="apellido" v-model.trim="formData.apellido" required name="apellido" autocomplete="off" class="form-control" :minlength="nomApeMinLength":maxlength="nomApeMaxLength"
-        sin-espacios placeholder="Ingrese aqui su Apellido"/>
-  
-        <field-messages name="apellido" show="$dirty">
-          <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
-          <div slot="sin-espacios" class="alert alert-danger mt-1">No se permiten espacios intermedios en este campo.</div>
-          <div slot="minlength" class="alert alert-danger mt-1"> Este campo debe poseer al menos {{ nomApeMinLength }} caracteres </div>
-          <div v-if="formData.apellido.length == nomApeMaxLength" class="alert alert-danger mt-1"> Este campo debe poseer como máximo {{ nomApeMaxLength }} caracteres </div>
-        </field-messages>
-      </validate>
-      <br>
-  <div class="row">
-    <div class="col-6">
-      <validate tag="div">
-        <label for="fechaNacimiento">Fecha de Nacimiento</label>
-        <input type="date" id="fechaNacimiento" v-model="formData.fechaNacimiento" required name="fechaNacimiento" autocomplete="off" class="form-control" placeholder="Ingrese aqui su Fecha de nacimiento" />
-  
-        <field-messages name="fechaNacimiento" show="$dirty">
-          <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
-        </field-messages>
-      </validate>
-      <br>
-    </div>
-    <div class="col-6">
-      <validate tag="div">
-        <label for="telefono">Telefono</label>
-        <input type="text" id="telefono" v-model="formData.telefono" required name="telefono" autocomplete="off" class="form-control" :minlength="telminLength" :maxlength="telmaxLength" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Ingerese aqui su numero de telefono" />
-  
-        <field-messages name="telefono" show="$dirty">
-          <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
-          <div slot="minlength" class="alert alert-danger mt-1"> Este campo debe poseer al menos {{ telminLength }} caracteres </div>
-          <div v-if="formData.telefono.length == telmaxLength" class="alert alert-danger mt-1"> Este campo debe poseer como máximo {{ telmaxLength }} caracteres </div>
+          <validate tag="div">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" v-model.trim="formData.nombre" required name="nombre" autocomplete="off" class="form-control" :minlength="nomApeMinLength":maxlength="nomApeMaxLength"
+            sin-espacios placeholder="Ingrese aqui su Nombre"/>
+      
+            <field-messages name="nombre" show="$dirty">
+              <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
+              <div slot="sin-espacios" class="alert alert-danger mt-1">No se permiten espacios intermedios en este campo.</div>
+              <div slot="minlength" class="alert alert-danger mt-1"> Este campo debe poseer al menos {{ nomApeMinLength }} caracteres </div>
+              <div v-if="formData.nombre.length == nomApeMaxLength" class="alert alert-danger mt-1"> Este campo debe poseer como máximo {{ nomApeMaxLength }} caracteres </div>
+            </field-messages>
+          </validate>
+          <br>
+          <validate tag="div">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" v-model.trim="formData.apellido" required name="apellido" autocomplete="off" class="form-control" :minlength="nomApeMinLength":maxlength="nomApeMaxLength"
+            sin-espacios placeholder="Ingrese aqui su Apellido"/>
+      
+            <field-messages name="apellido" show="$dirty">
+              <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
+              <div slot="sin-espacios" class="alert alert-danger mt-1">No se permiten espacios intermedios en este campo.</div>
+              <div slot="minlength" class="alert alert-danger mt-1"> Este campo debe poseer al menos {{ nomApeMinLength }} caracteres </div>
+              <div v-if="formData.apellido.length == nomApeMaxLength" class="alert alert-danger mt-1"> Este campo debe poseer como máximo {{ nomApeMaxLength }} caracteres </div>
+            </field-messages>
+          </validate>
+          <br>
+          <validate tag="div">
+            <label for="dni">DNI</label>
+            <input type="text" id="dni" v-model="formData.dni" required name="dni" autocomplete="off" class="form-control" sin-espacios :minlength="dniMinLength" :maxlength="dniMaxLength" placeholder="Ingrese aqui su dni"/>
 
-        </field-messages>
-      </validate>
-      <br>
-    </div>
-    </div>
-      <validate tag="div">
-        <label for="email">Email</label>
-        <input  type="email" id="email" v-model.number="formData.email" name="email" class="form-control" autocomplete="off" required placeholder="Ingrese aqio su Email"/>
+            <field-messages name="dni" show="$dirty">
+            <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
+            <div slot="sin-espacios" class="alert alert-danger mt-1">No se permiten espacios intermedios en este campo.</div>
+            <div slot="minlength" class="alert alert-danger mt-1"> Este campo debe poseer al menos {{ dniMinLength }} caracteres </div>
+            <div v-if="formData.dni.length == dniMaxLength" class="alert alert-danger mt-1"> Este campo debe poseer como máximo {{ dniMaxLength }} caracteres </div>
+            </field-messages>
+          </validate>
+          <br>
+        
+      <div class="row">
+        <div class="col-6">
+          <validate tag="div">
+            <label for="fechaNacimiento">Fecha de Nacimiento</label>
+            <input type="date" id="fechaNacimiento" v-model="formData.fechaNacimiento" required name="fechaNacimiento" autocomplete="off" class="form-control" placeholder="Ingrese aqui su Fecha de nacimiento" />
+      
+            <field-messages name="fechaNacimiento" show="$dirty">
+              <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
+            </field-messages>
+          </validate>
+          <br>
+        </div>
+        <div class="col-6">
+          <validate tag="div">
+            <label for="telefono">Telefono</label>
+            <input type="text" id="telefono" v-model="formData.telefono" required name="telefono" autocomplete="off" class="form-control" :minlength="telminLength" :maxlength="telmaxLength" placeholder="Ingerese aqui su numero de telefono" />
+      
+            <field-messages name="telefono" show="$dirty">
+              <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
+              <div slot="minlength" class="alert alert-danger mt-1"> Este campo debe poseer al menos {{ telminLength }} caracteres </div>
+              <div v-if="formData.telefono.length == telmaxLength" class="alert alert-danger mt-1"> Este campo debe poseer como máximo {{ telmaxLength }} caracteres </div>
 
-        <field-messages name="email" show="$dirty">
-          <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
-          <div slot="email" class="alert alert-danger mt-1">Email no válido</div>
-        </field-messages>
-      </validate>
-      <br>
+            </field-messages>
+          </validate>
+          <br>
+       </div>
+        </div>
+         <validate tag="div">
+            <label for="email">Email</label>
+            <input  type="email" id="email" v-model.number="formData.email" name="email" class="form-control" autocomplete="off" required placeholder="Ingrese aqui su Email"/>
 
-      <button class="btn btn-success my-3" :disabled="formstate.$invalid" type="submit">Enviar</button>
+            <field-messages name="email" show="$dirty">
+              <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
+              <div slot="email" class="alert alert-danger mt-1">Email no válido</div>
+            </field-messages>
+          </validate>
+          <br>
 
-
-     
-
-
+          <button class="btn btn-success my-3" :disabled="formstate.$invalid" type="submit">Enviar</button>
     </vue-form>
     <br>
+  
     
 
     

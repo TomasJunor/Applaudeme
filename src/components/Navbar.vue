@@ -23,7 +23,7 @@
           <img src="../img/plaudeme.png" alt="logo Applaudeme" width="300">
           
           <li class="nav-item">
-            <router-link to="/registro">
+            <router-link to="/LogIn">
               <a class="nav-link" href="#">Registro</a>
             </router-link>
           </li>

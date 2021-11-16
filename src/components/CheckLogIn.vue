@@ -1,41 +1,67 @@
-<template>
+ <template>
     <section class="src-componentes-CheckLogIn">
-       <div class="jumbotron text-center">
-        <vue-form :state="formstate" @submit.prevent="enviar()">
-            
-            <validate tag="div">
-                 <h1>Ingrese su DNI</h1>
-                <input type="text" id="dni" v-model.trim="formData.dni" required name="dni" autocomplete="off" class="form-control" sin-espacios placeholder="Ingrese aqui su DNI"/>
+       <div class="jumbotron">
 
-                <field-messages name="nombre" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
-                <div slot="sin-espacios" class="alert alert-danger mt-1">No se permiten espacios intermedios en este campo.</div>
-                </field-messages>
-            </validate>
-            <button class="btn btn-success my-3" :disabled="formstate.$invalid" type="submit">Enviar</button>
-        </vue-form>
+             <div class="row justify-content-end"  >
+                 <div class="col-2 pr-0"><img src="../img/Aplausos.jpeg" alt="" width="60"></div>
+                 <div class="col-1 pr-0 pt-1" style="margin-left: -60px;"><h1>{{mostrarContAplausos}}</h1></div>
+                 <div class="col-1 pt-2" style="margin-left: -30px;"><button class="btn m-0" @click="incrementar()" style="background-color: #4b1977; color: white; ">+</button></div>
+             </div>
+            <div class= "row justify-content-center" v-if="!ocultarCheckDni">
+                <div class="col-7">
+                    <vue-form :state="formstateC" @submit.prevent="send()"> 
+                        <validate tag="div">
+                            <h1>Ingrese su DNI</h1>
+                            <br>
+                            <input type="text" id="dniCheck" v-model="formDataC.dniCheck" required name="dniCheck" autocomplete="off" class="form-control" sin-espacios :minlength="dniMinLength" :maxlength="dniMaxLength" placeholder="Ingrese aqui su dniCheck"/>
+
+                            <field-messages name="dniCheck" show="$dirty">
+                            <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
+                            <div slot="sin-espacios" class="alert alert-danger mt-1">No se permiten espacios intermedios en este campo.</div>
+                            <div slot="minlength" class="alert alert-danger mt-1"> Este campo debe poseer al menos {{ dniMinLength }} caracteres </div>
+                            <div v-if="formDataC.dniCheck.length == dniMaxLength" class="alert alert-danger mt-1"> Este campo debe poseer como máximo {{ dniMaxLength }} caracteres </div>
+                            </field-messages>
+                        </validate>
+                        <button class="btn btn-success my-3" :disabled="formstateC.$invalid" type="submit">Enviar</button>
+                    </vue-form>
+                </div>
+            </div>
+
+
+            <Registro v-show="!exist && ocultarCheckDni" class="registro"/>
+            <h1 v-show="exist && ocultarCheckDni">existe modificate</h1>
+
     </div>
   </section>
 </template>
 
 <script>
+ import Registro from './Registro/index.vue'
+
+
   export default  {
     name: 'src-componentes-CheckLogIn',
+    components: {Registro},
     props: [],
     mounted () {
-      
+      this.pedirDatosAlServidor()
     },
     data () {
       return {
-        formstate : {},
-        formData : this.getDataInicial(),
-        url: 'https://6189765ed0821900178d79d0.mockapi.io/Usuarios'
+        formstateC : {},
+        formDataC : this.getDataInicial(),
+        url: 'https://6192ef67d3ae6d0017da8331.mockapi.io/Usuarios',
+        datos : [],
+        dniMinLength : 8,
+        dniMaxLength : 9,
+        exist : "",
+        ocultarCheckDni : false,
       }
     },
     methods: {
         getDataInicial() {
             return {
-                dni:''
+                dniCheck:''
             }
         },
         async pedirDatosAlServidor() {
@@ -51,12 +77,22 @@
         }
         },
       
-        enviar() {
-            let datos = {...this.formData}
-            console.log(datos)
-            this.enviarDatosAlServidor(datos)
-            this.formData = this.getInicialData() 
-            this.formState._reset()
+        send() {
+           console.log(this.datos)
+           console.log(this.formDataC.dniCheck)
+
+            for (let i = 0; i < this.datos.length; i++) {
+                const user = this.datos[i];
+                console.log(user.dni)
+                if (user.dni ==  this.formDataC.dniCheck) {
+                    this.exist=true 
+                }     
+            }
+           
+            //this.$emit('exist', this.exist)
+            this.ocultarCheckDni=true
+            this.formDataC = this.getDataInicial() 
+            //this.formStateC._reset()
         },
 
     },
@@ -67,12 +103,14 @@
 
 <style scoped lang="css">
   .src-componentes-CheckLogIn {
-      text-align: center;
+     text-align: center;
       }
     .jumbotron{
         background-color: #e7e0c9;
     }
   
-
+    .registro{
+        text-align: initial;
+    }
     
 </style>

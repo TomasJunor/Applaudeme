@@ -1,17 +1,20 @@
 
 export default {
-  name: 'src-components-registro',
+  name: 'src-components-Registro',
   components: {},
   props: [],
   data () {
     return {
-      formstate : {},
       formData : this.getDataInicial(),
+      formstate : {},
       nomApeMinLength : 3,
       nomApeMaxLength : 15,
       telminLength : 10,
       telmaxLength : 15,
-      url: 'http://localhost:3000/'
+      dniMinLength : 8,
+      dniMaxLength : 9,
+      url: 'https://6192ef67d3ae6d0017da8331.mockapi.io/Usuarios',
+      datos : []
     }
   },
   computed: {
@@ -25,6 +28,7 @@ export default {
       return {
         nombre : '',
         apellido: '',
+        dni : '',
         fechaNacimiento:'',
         telefono:'',
         email : ''
@@ -42,12 +46,13 @@ export default {
         console.error('Error en envio de datos del formulario')
       }
     },
+  
     enviar() {
       let datos = {...this.formData}
       console.log(datos)
       this.enviarDatosAlServidor(datos)
-      this.formData = this.getInicialData() 
-      this.formState._reset()
+      this.formData = this.getDataInicial() 
+      this.formstate._reset()
     },
   }
 }
