@@ -10,45 +10,131 @@
     <vue-form :state="formState" @submit.prevent="enviar()">
  
       <!-- ------------ -->
-      <!-- Campo codigo -->
+      <!-- Campo titulo -->
       <!-- ------------ -->
       <validate tag="div">
-        <label for="codigo">codigo</label>
-         <input type="text" id="codAccess" v-model="formData.codAccess" required name="codAccess" autocomplete="off" class="form-control" sin-espacios :minlength="CodMinLength" :maxlength="CodMaxLength" placeholder="Ingrese aqui su Codigo de acceso"/>
-
-                            <field-messages name="codAccess" show="$dirty">
-                            <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>
-                            <div slot="sin-espacios" class="alert alert-danger mt-1">No se permiten espacios intermedios en este campo.</div>
-                            <div slot="minlength" class="alert alert-danger mt-1"> Este campo debe poseer al menos {{ CodMinLength }} caracteres </div>
-                            <div v-if="formData.codigo.length == CodMaxLength" class="alert alert-danger mt-1"> Este campo debe poseer menos de {{ CodMaxLength }} caracteres </div>
-                            </field-messages>
-                        
+        <label for="titulo">titulo</label>
+        <input 
+          type="text"
+          id="titulo"
+          v-model.trim="formData.titulo"
+          name="titulo" 
+          class="form-control"
+          autocomplete="on"
+          required 
+          no-espacios
+        />
+        <!-- Mensajes de validación del campo titulo -->
+        <field-messages name="titulo" show="$dirty">
+          <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
+          <div slot="no-espacios" class="alert alert-danger mt-1">
+            No se permiten espacios intermedios en este campo.
+          </div>
+       
+        </field-messages>
       </validate>
       <br>
 
       <!-- -------------- -->
-      <!-- Campo urlSala -->
+      <!-- Campo descripcion -->
       <!-- -------------- -->
       <validate tag="div">
-        <label for="urlSala">url</label>
+        <label for="descripcion">desc</label>
         <input 
           type="text"
-          id="urlSala"
-          v-model="formData.urlSala"
-          name="urlSala" 
+          id="descripcion"
+          v-model="formData.descripcion"
+          name="descripcion" 
           class="form-control"
-          autocomplete="off"
+          autocomplete="on"
           required 
         />
-        <!-- Mensajes de validación del campo urlSala -->
-        <field-messages name="urlSala" show="$dirty">
+        <!-- Mensajes de validación del campo descripcion -->
+        <field-messages name="descripcion" show="$dirty">
           <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
         </field-messages>
       </validate>
       <br>
       
-    
+      <!-- -------------- -->
+      <!--   Campo duracion   -->
+      <!-- -------------- -->
+      <validate tag="div">
+        <label for="duracion">duracion</label>
+        <input 
+          type="number"
+          id="duracion"
+          v-model.number="formData.duracion"
+          name="duracion" 
+          class="form-control"
+          autocomplete="on"
+          required 
+        
+        />
+        <!-- Mensajes de validación del campo duracion -->
+        <field-messages name="duracion" show="$dirty">
+          <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
+         
+        </field-messages>
+      </validate>
+      <br>
+      
 
+      <validate tag="div">
+        <label for="estreno">estreno</label>
+        <input 
+          type="date"
+          id="estreno"
+          v-model="formData.estreno"
+          name="estreno" 
+          class="form-control"
+          autocomplete="on"
+          required 
+        
+        />
+        <!-- Mensajes de validación del campo estreno -->
+        <field-messages name="estreno" show="$dirty">
+          <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
+         
+        </field-messages>
+      </validate>
+      <br>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia doloremque pariatur numquam iure neque aspernatur laboriosam suscipit voluptatem? Odit, similique impedit corporis quos enim ullam! Ducimus fugit voluptatem sed eius.</p>
+      <validate tag="div">
+        <label for="genero">Genero</label>
+        <input 
+          type="text"
+          id="genero"
+          v-model="formData.genero"
+          name="genero" 
+          class="form-control"
+          autocomplete="on"
+          required 
+        />
+        <!-- Mensajes de validación del campo genero -->
+        <field-messages name="genero" show="$dirty">
+          <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
+        </field-messages>
+      </validate>
+      <br>
+      <validate tag="div">
+        <label for="img">img</label>
+        <input 
+          type="text"
+          id="img"
+          v-model="formData.img"
+          name="img" 
+          class="form-control"
+          autocomplete="on"
+          required 
+        />
+        <!-- Mensajes de validación del campo img -->
+        <field-messages name="img" show="$dirty">
+          <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
+        </field-messages>
+      </validate>
+      <br>
       <button class="btn btn-success my-3" :disabled="formState.$invalid" type="submit">Enviar</button>
     </vue-form>
 
@@ -80,10 +166,8 @@ export default {
     return {
       formData : this.getInicialData(),
       formState : {},
-      url : 'https://6192ef67d3ae6d0017da8331.mockapi.io/Room',
-      datos : [],
-    CodMinLength : 6,
-        CodMaxLength : 6
+      url : 'https://6192ef67d3ae6d0017da8331.mockapi.io/Obras',
+      datos : []
     }
   },
   computed: {
@@ -95,9 +179,12 @@ export default {
   methods: {
     getInicialData() {
       return {
-        codigo : '',
-        urlSala : '',
-
+        titulo : '',
+        descripcion : '',
+        duracion :'',
+        estreno : '',
+        genero: '',
+        img : ''
       }
     },
 

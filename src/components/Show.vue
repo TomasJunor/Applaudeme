@@ -10,26 +10,26 @@
 
          <div class="row">
            <div class="col-6">
-             <img src="../img/hamlet.jpg" alt="" height="800">
+             <img v-bind:src="require('../img/' + img)" alt="" height="800">
             </div>
             <div class="col-6">  
                 <div class="titulo">
-                    <h1>{{mostrarShows.nombre}}</h1>
+                    <h1>{{mostrarShows.titulo}}</h1>
                 </div>
                 <div class="descripcion">
-                    <p>{{mostrarShows.email}} Quisquam doloremque, deserunt culpa,officia ut error vero aperiam, commodi ex velit atque magnam repudiandae dolor deleniti?</p>
+                    <p>{{mostrarShows.descripcion}}</p>
                 </div>
                 <div class="row">
                     <div class="col-6 genero ">
-                        <h4>Genero: {{mostrarShows.edad}}</h4>
+                        <h4>Genero: {{mostrarShows.genero}}</h4>
                     </div>
                     <div class="col-6 duracion">
-                        <h4>Duracion: {{mostrarShows.edad}}</h4>
+                        <h4>Duracion: {{mostrarShows.duracion}} Hs</h4>
                     </div>
                 </div>
                 <div class="fecha">
                     <h1>Fecha de Estreno</h1>
-                    <h1>{{mostrarShows.edad}}</h1>
+                    <h1>{{mostrarShows.estreno}}</h1>
                 </div>
                 <div class="row">
                     <div class="col-6 genero ">
@@ -51,16 +51,18 @@
     name: 'src-componentes-Show',
     props: [],
     mounted () {
-      
+        this.traerimg()
     },
     data () {
       return {
-        
+        img : ""
       }
     },
     methods: {
-      
-
+      traerimg(){
+         this.img = this.$store.state.posts.img
+          console.log(this.img)
+      }
 
     },
     computed: {

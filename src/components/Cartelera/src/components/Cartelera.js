@@ -6,7 +6,7 @@ export default {
   props: [],
   data () {
     return {
-      url : 'https://6189765ed0821900178d79d0.mockapi.io/Usuarios',
+      url : 'https://6192ef67d3ae6d0017da8331.mockapi.io/Obras',
       datos : [],
     }
   },
