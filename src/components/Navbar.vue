@@ -26,6 +26,12 @@
             <router-link to="/LogIn">
               <a class="nav-link" href="#">Registro</a>
             </router-link>
+          </li> 
+          
+          <li class="nav-item">
+            <router-link to="/carga">
+              <a class="nav-link" href="#">carga datos</a>
+            </router-link>
           </li>
         </ul>
       </div>
