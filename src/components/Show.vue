@@ -36,7 +36,7 @@
                        <router-link to="/checkOut"> <button class="btn btn-success my-3"  type="submit">Compra Tu entrada!</button></router-link>
                     </div>
                     <div class="col-6 duracion">
-                      <router-link to="/room" >  <button class="btn btn-success my-3" type="submit">Ingreso al Show</button></router-link>
+                      <router-link to="/room" >  <button :class="['btn' , 'text-white', {'bg-success':estado, 'bg-danger':!estado }, 'my-3' ]" type="submit"  :disabled="!seEstreno(mostrarShows.estreno)">Ingreso al Show</button></router-link>
                     </div>
                 </div> 
             </div>
@@ -55,15 +55,32 @@
     },
     data () {
       return {
-        img : ""
+        img : "",
+        estado : ""
       }
     },
     methods: {
       traerimg(){
          this.img = this.$store.state.posts.img
           console.log(this.img)
-      }
-
+      },
+    
+        seEstreno(fecha){
+            console.log(new Date(fecha).getDate())
+            console.log(new Date().getDate())
+            this.estado = (new Date(fecha).getDate() <= new Date().getDate() && new Date(fecha).getMonth() <= new Date().getMonth())
+            return this.estado
+        },
+        getClass() {
+            return {
+                'btn' : true,
+                'text-white': true, 
+                'btn-success': this.estado, 
+                'btn-danger': !this.estado, 
+                'my-3': true
+            }
+        }
+        
     },
     computed: {
     }
