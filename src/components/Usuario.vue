@@ -2,7 +2,7 @@
     <section class="src-componentes-Usuarios">
        <div class="jumbotron">
            
-         <h1>Tu Cuenta</h1>
+         <h1>{{'tu cuenta' | pasarAMayuscula}}</h1>
          <br>
             <table class="table" v-if="!fueEliminado">
                 <tr>
