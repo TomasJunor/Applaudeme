@@ -14,7 +14,8 @@ export default {
       dniMinLength : 8,
       dniMaxLength : 9,
       url: 'https://6192ef67d3ae6d0017da8331.mockapi.io/Usuarios',
-      datos : []
+      datos : [],
+      guardado: false
     }
   },
   computed: {
@@ -48,6 +49,7 @@ export default {
     },
   
     enviar() {
+      this.guardado=true
       let datos = {...this.formData}
       console.log(datos)
       this.enviarDatosAlServidor(datos)

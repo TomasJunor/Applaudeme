@@ -6,7 +6,7 @@
             <div class="col-1 pr-0 pt-1" style="margin-left: -120px;"><h1>{{mostrarContAplausos}}</h1></div>
             <div class="col-1 pt-2" style="margin-left: -50px;"><button class="btn m-0" @click="incrementar()" style="background-color: #4b1977; color: white; ">+</button></div>
           </div>
-         <h1 class="pb-5">Room</h1>
+         <h1 class="pb-5">{{'room' | pasarAMayuscula}}</h1>
 
          <IngresoRoom  @exist="exist=$event" @url="url=$event" v-if="!exist"/>
 
