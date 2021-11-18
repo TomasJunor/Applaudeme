@@ -13,7 +13,7 @@
                         <validate tag="div">
                             <h1>Ingrese su DNI</h1>
                             <br>
-                            <input type="text" id="dniCheck" v-model="formDataC.dniCheck" required name="dniCheck" autocomplete="off" class="form-control" sin-espacios :minlength="dniMinLength" :maxlength="dniMaxLength" placeholder="Ingrese aqui su dniCheck"/>
+                            <input type="text" id="dniCheck" v-model="formDataC.dniCheck" required name="dniCheck" autocomplete="off" class="form-control" sin-espacios :minlength="dniMinLength" :maxlength="dniMaxLength" placeholder="Ingrese aqui su dni"/>
 
                             <field-messages name="dniCheck" show="$dirty">
                             <div slot="required" class="alert alert-danger mt-1">Este campo es obligatorio</div>

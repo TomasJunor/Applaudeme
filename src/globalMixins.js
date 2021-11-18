@@ -23,7 +23,6 @@ const miMixinGlobal = {
         },
         mostrarContAplausos() {
             let contador = this.$store.state.contador
-            console.log('Mixin -> mostrarContadorVuex', contador)
             return contador
         }
     }
