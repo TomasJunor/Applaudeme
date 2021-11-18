@@ -9,9 +9,6 @@
 
     <vue-form :state="formState" @submit.prevent="enviar()">
  
-      <!-- ------------ -->
-      <!-- Campo titulo -->
-      <!-- ------------ -->
       <validate tag="div">
         <label for="titulo">titulo</label>
         <input 
@@ -24,7 +21,6 @@
           required 
           no-espacios
         />
-        <!-- Mensajes de validación del campo titulo -->
         <field-messages name="titulo" show="$dirty">
           <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
           <div slot="no-espacios" class="alert alert-danger mt-1">
@@ -35,9 +31,7 @@
       </validate>
       <br>
 
-      <!-- -------------- -->
-      <!-- Campo descripcion -->
-      <!-- -------------- -->
+    
       <validate tag="div">
         <label for="descripcion">desc</label>
         <input 
@@ -49,16 +43,13 @@
           autocomplete="on"
           required 
         />
-        <!-- Mensajes de validación del campo descripcion -->
         <field-messages name="descripcion" show="$dirty">
           <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
         </field-messages>
       </validate>
       <br>
       
-      <!-- -------------- -->
-      <!--   Campo duracion   -->
-      <!-- -------------- -->
+     
       <validate tag="div">
         <label for="duracion">duracion</label>
         <input 
@@ -71,7 +62,6 @@
           required 
         
         />
-        <!-- Mensajes de validación del campo duracion -->
         <field-messages name="duracion" show="$dirty">
           <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
          
@@ -92,7 +82,6 @@
           required 
         
         />
-        <!-- Mensajes de validación del campo estreno -->
         <field-messages name="estreno" show="$dirty">
           <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
          
@@ -112,7 +101,6 @@
           autocomplete="on"
           required 
         />
-        <!-- Mensajes de validación del campo genero -->
         <field-messages name="genero" show="$dirty">
           <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
         </field-messages>
@@ -129,7 +117,6 @@
           autocomplete="on"
           required 
         />
-        <!-- Mensajes de validación del campo img -->
         <field-messages name="img" show="$dirty">
           <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
         </field-messages>

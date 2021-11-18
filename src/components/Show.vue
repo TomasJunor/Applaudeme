@@ -1,7 +1,7 @@
 <template>
     <section class="src-componentes-Show">
        <div class="jumbotron">
-
+           
             <div class="row justify-content-end"  >
                 <div class="col-2 pr-0"><img src="../img/Aplausos.jpeg" alt="" width="60"></div>
                 <div class="col-1 pr-0 pt-1" style="margin-left: -50px;"><h1>{{mostrarContAplausos}}</h1></div>
@@ -10,7 +10,7 @@
 
          <div class="row">
            <div class="col-6">
-             <img v-bind:src="require('../img/' + img)" alt="" height="800">
+             <img :src="require('../img/' + this.$store.state.posts.img)" alt="" height="800">
             </div>
             <div class="col-6">  
                 <div class="titulo">
@@ -36,7 +36,7 @@
                        <router-link to="/checkOut"> <button class="btn btn-success my-3"  type="submit">Compra Tu entrada!</button></router-link>
                     </div>
                     <div class="col-6 duracion">
-                      <router-link to="/room" >  <button :class="['btn' , 'text-white', {'bg-success':estado, 'bg-danger':!estado }, 'my-3' ]" type="submit"  :disabled="!seEstreno(mostrarShows.estreno)">Ingreso al Show</button></router-link>
+                      <router-link to="/room" >  <button :class="['btn' , 'text-white', {'btn-success':estado, 'btn-danger':!estado }, 'my-3' ]" type="submit"  :disabled="!seEstreno(mostrarShows.estreno)">Ingreso al Show</button></router-link>
                     </div>
                 </div> 
             </div>
@@ -51,34 +51,19 @@
     name: 'src-componentes-Show',
     props: [],
     mounted () {
-        this.traerimg()
+        
     },
     data () {
       return {
-        img : "",
         estado : ""
       }
     },
     methods: {
-      traerimg(){
-         this.img = this.$store.state.posts.img
-          console.log(this.img)
-      },
-    
         seEstreno(fecha){
             console.log(new Date(fecha).getDate())
             console.log(new Date().getDate())
             this.estado = (new Date(fecha).getDate() <= new Date().getDate() && new Date(fecha).getMonth() <= new Date().getMonth())
             return this.estado
-        },
-        getClass() {
-            return {
-                'btn' : true,
-                'text-white': true, 
-                'btn-success': this.estado, 
-                'btn-danger': !this.estado, 
-                'my-3': true
-            }
         }
         
     },
