@@ -60,9 +60,8 @@
     },
     methods: {
         seEstreno(fecha){
-            console.log(new Date(fecha).getDate())
-            console.log(new Date().getDate())
-            this.estado = (new Date(fecha).getDate() <= new Date().getDate() && new Date(fecha).getMonth() <= new Date().getMonth())
+        //modicicacion de fecha para habilitar uno de los show sin tener qeu cambiar datos del mockApi
+            this.estado = (new Date(fecha).getDate()-10 <= new Date().getDate() && (new Date(fecha).getMonth()+1) <= new Date().getMonth())
             return this.estado
         }
         

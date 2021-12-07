@@ -9,6 +9,9 @@ import CheckOut from './components/CheckOut.vue'
 import Room from './components/Room.vue'
 import cargaDatos from './components/ComponenteParaLLenarBD.vue'
 
+import userManager from './components/UserManager.vue'
+
+
 Vue.use(VueRouter)
 
 export const router = new VueRouter({
@@ -21,6 +24,8 @@ export const router = new VueRouter({
         { path: '/show', component: Show },
         { path: '/checkOut', component: CheckOut },
         { path: '/room', component: Room },
-        { path: '/carga', component: cargaDatos }
+        { path: '/carga', component: cargaDatos },
+        { path: '/manager', component: userManager }
+
     ]
 })
