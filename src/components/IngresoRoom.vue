@@ -70,13 +70,12 @@
            console.log(this.datos)
 
             for (let i = 0; i < this.datos.length; i++) {
-                const user = this.datos[i];
-                console.log(user.codAccess , ' sfdasd')
-                if (user.codAccess ==  this.formDataI.codAccess) {
+                const room = this.datos[i];
+                if (room.codAccess ==  this.formDataI.codAccess) {
                     this.existe=true 
                     this.$emit('exist', this.existe)
-                    this.$emit('url', user.urlSala)
-                    console.log(user.urlSala)
+                    this.$emit('url', room.urlSala)
+                    console.log(room.urlSala)
                 }  
             }
 
