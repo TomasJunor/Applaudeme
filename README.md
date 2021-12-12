@@ -71,7 +71,7 @@ Contiene los diferentes archivos que confirman el formulario de Registro de Usua
 Contiene todas las imagenes que consume la app (banners, icons, promotions, etc).
 ### src/axios.js
 Contiene el objeto "vue axios" que se implementa en la aplicación para la conexión con la API.
-### src/axios.js
+### src/form.js
 Contiene el objeto "vue form" que se implementa en la aplicación para la generación de formularios. Tambien contiene una validación por aplicable en estos formularios que devuelve los inputs sin espacios.
 ### src/globalFilters.js:
 Contiene los filtros que se aplican a nivel global en la app.
